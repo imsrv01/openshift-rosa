@@ -23,3 +23,9 @@ rosa create operator-roles --hosted-cp --prefix $OPERATOR_ROLES_PREFIX --oidc-co
 
 # Create cluster
 rosa create cluster --cluster-name=<cluster_name> --sts --mode=auto --hosted-cp --operator-roles-prefix <operator-role-prefix> --oidc-config-id <ID-of-OIDC-configuration> --subnet-ids=<public-subnet-id>,<private-subnet-id>
+
+# describe cluster
+rosa describe cluster -c rosalab5
+
+# Get logs
+rosa logs install -c rosalab5 --watch
