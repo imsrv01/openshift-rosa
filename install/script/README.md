@@ -3,7 +3,7 @@
 
 ## Add admin account
    
-   rosa create admin --cluster=<clustername>
+    rosa create admin --cluster=<clustername>
 
 Takes few minutes to add account
 
