@@ -29,3 +29,47 @@ rosa describe cluster -c rosalab5
 
 # Get logs
 rosa logs install -c rosalab5 --watch
+
+
+===
+
+#!/bin/bash
+
+# Declare variables
+cluster_name=$1
+region=$2
+version=$3
+role_prefix=$4
+oidc_config_file=$5  # Added for OIDC config file output
+
+# Login to ROSA CLI
+rosa login
+
+# Create OIDC configuration
+rosa create oidc-config > $oidc_config_file
+
+# Extract OIDC config ID from JSON output
+oidc_config_id=$(jq -r '.oidcConfigId' $oidc_config_file)
+
+# Create the cluster with OIDC config
+rosa create cluster $cluster_name \
+  --region=$region \
+  --version=$version \
+  --oidc-config-id=$oidc_config_id \
+  # Add other desired options
+
+# Create cluster-specific operator roles with prefix
+rosa create operator-roles --prefix $role_prefix
+
+# Wait for cluster creation and operator roles to be ready
+rosa wait cluster --name $cluster_name --wait-ready
+
+# Configure kubectl for cluster access
+rosa configure kubectl $cluster_name
+
+# Print cluster information
+rosa describe cluster $cluster_name
+
+====
+
+./create_rosa_cluster.sh my-cluster us-east-1 4.13 my-roles oidc_config.json
