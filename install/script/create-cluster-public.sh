@@ -14,7 +14,7 @@ ACCOUNT_ROLES_PREFIX="${ACCOUNT_ROLES_PREFIX}"
 rosa create account-roles --hosted-cp --prefix $ACCOUNT_ROLES_PREFIX
 
 # Create OIDC configuration
-rosa create oidc-config --mode=auto  --yes
+rosa create oidc-config --mode=auto  --yes --output json > oidc.config
 rosa list oidc-config
 
 # Create operator role
