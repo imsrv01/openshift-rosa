@@ -40,5 +40,9 @@ To login to your Red Hat account, get an offline access token at https://console
 I: Logged in as 'shan.vernekar@ibm.com' on 'https://api.openshift.com'
 
 
+# STEPS
+
+https://console.redhat.com/openshift/create/rosa/getstarted
+
 
   
