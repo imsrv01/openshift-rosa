@@ -32,5 +32,13 @@ Check the version:
 
   git --version
 
+## ROSA Login
+
+  rosa login
+To login to your Red Hat account, get an offline access token at https://console.redhat.com/openshift/token/rosa
+? Copy the token and paste it here: **********************************************************************************************************************************************************************************
+I: Logged in as 'shan.vernekar@ibm.com' on 'https://api.openshift.com'
+
+
 
   
