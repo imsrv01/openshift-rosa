@@ -24,3 +24,13 @@ Move the binary to a directory in your PATH:
 Check the version:
 
   terraform -v
+
+
+## Install git
+
+  xcode-select --install
+
+  git --version
+
+
+  
